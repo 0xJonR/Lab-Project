@@ -1,4 +1,4 @@
-import Location
+from .Location import Location
 
 
 class Character(Location):
