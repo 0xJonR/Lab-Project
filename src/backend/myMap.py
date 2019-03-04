@@ -1,15 +1,19 @@
 from .Projectile import Projectile
 from .Character import Character
 from .Location import Location
-from .Weapon import Weapon
+from .Weapon import Weapon, Pistol, Rifle, Shotgun, Smg
 import random
 #matrix[column][row]
 #origin is [0][0] top left corner: right to left movement is map[+-x][row]
 #up to down movement is map[x][+-y]
 # going down Y is add (Map Origin is top left)
-# TODO : ADD SPAWNING FUNCTIONALITY
+#TODO:
 class myMap():
+    spawnMod = 15
 
+    @property
+    def spawn_modifier(self):
+        return type(self).spawnMod
 
     def __init__(self, size):
         self.world = [[0 for j in range(size)] for i in range(size)]
@@ -31,13 +35,20 @@ class myMap():
     def spawn(self, itemName):
         xR = self.random()
         yR = self.random()
-        self.world[xR][yR] = itemName
+        self.world[xR][yR] = itemName(xR, yR)
 
-    def ranGen(self):
+    def ran_gen(self):
         #handles spawning random items: chooses random item to spawn
-        #TODO: handle case switching for different weapons
         modifier = self.random()
-        return self.spawn(Weapon)
-
-
-
+        if 0 <= modifier < 25:
+            #pistol
+            self.spawn(Pistol)
+        elif 25 < modifier < 50:
+            #rifle
+            self.spawn(Rifle)
+        elif modifier >=50 and modifier < 75:
+            #shotgun
+            self.spawn(Shotgun)
+        elif modifier >= 75:
+            #smg
+            self.spawn(Smg)

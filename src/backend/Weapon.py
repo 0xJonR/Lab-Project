@@ -12,7 +12,7 @@ class Weapon(Location):
 
     def __init__(self, loc):
         #self.type = "Weapon"
-        super(Weapon, self).__init__(loc.x, loc.y)
+        super().__init__(loc.x, loc.y)
 
 #    #weapons should not shoot infintely in a direction
     def shoot(self):
@@ -49,5 +49,14 @@ class Rifle(Weapon):
     fireRate = 1.0
 
     def __init__(self, loc):
-        super(Rifle, self).__init__(loc)
+        super().__init__(loc)
+
+
+class Smg(Weapon):
+    ammo = 20
+    DMG = 200
+    fireRate = 1.60
+
+    def __init__(self, loc):
+        super().__init__(loc)
 
