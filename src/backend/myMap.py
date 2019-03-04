@@ -9,18 +9,16 @@ import random
 # going down Y is add (Map Origin is top left)
 #TODO:
 class myMap():
-    spawnMod = 15
 
-    @property
-    def spawn_modifier(self):
-        return type(self).spawnMod
-
-    def __init__(self, size):
+    def __init__(self, size, spawnMod):
+        self.spawnmod = spawnMod
         self.world = [[0 for j in range(size)] for i in range(size)]
         for row_index, row in enumerate(self.world):
             for col_index, item in enumerate(row):
                 self.world[row_index][col_index] = Location(row_index, col_index)
                 #inits world full of locations
+        for x in range(self.spawnmod):
+            self.ran_gen()
 
     def rEz(self):
         return (random.randint(0, 100), random.randint(0, 100))
