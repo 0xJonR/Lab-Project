@@ -23,3 +23,31 @@ class Weapon(Location):
 
     def reload(self):
         pass
+
+
+class Pistol(Weapon):
+    ammo = 10
+    DMG = 25
+    fireRate = 0.5
+
+    def __init__(self, loc):
+        super().__init__(self, loc)
+
+
+class Shotgun(Weapon):
+    ammo = 5
+    DMG = 420
+    fireRate = 0.25
+
+    def __init__(self, loc):
+        super().__init__(loc)
+
+
+class Rifle(Weapon):
+    ammo = 30
+    DMG = 300
+    fireRate = 1.0
+
+    def __init__(self, loc):
+        super(Rifle, self).__init__(loc)
+
