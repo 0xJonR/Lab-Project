@@ -4,9 +4,10 @@ from .Location import Location
 class Projectile(Location):
     #x y
     #hitscan
-    def __init__(self, x, y):
+    def __init__(self, x, y, dT):
         self.x = x
         self.y = y
+        self.dT = dT
 
     def XYCollision(self):
         pass
