@@ -4,8 +4,7 @@ from .Location import Location
 class Weapon(Location):
     def __init__(self, name, loc):
         self.name = name
-        self.x = loc.x
-        self.y = loc.y
+        super(Weapon, self).__init__(loc.x, loc.y)
 
 
     ammo = 30 #30 rounds by
@@ -13,7 +12,7 @@ class Weapon(Location):
     def shoot(self):
         #subtract one from ammo
         self.ammo -= 1
-        new Projectile()
+        Projectile(self.x, self.y)
         pass
 
     def reload(self):

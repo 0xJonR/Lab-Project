@@ -1,10 +1,12 @@
 class Location:
-    #attributes
+    #    attributes
 
-
-    #init
+    #    init
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
-    #instance methods
+    def __str__(self):
+        print(self.x, self.y)
+
+#    #instance methods

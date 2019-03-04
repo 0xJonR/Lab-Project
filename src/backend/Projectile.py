@@ -12,14 +12,16 @@ class Projectile(Location):
         pass
 
     def __eq__(self, other):
-        return self.x==other.x && self.y==other.y
+        return self.x==other.x and self.y==other.y
 
     def projectileDistance(self, dT):
-        c = new Projectile(self.x + dT, self.y + dT)
+        c = Projectile(self.x + dT, self.y + dT)
         return c
 
     def isCollide(self, projDistance, otherProj):
-        x = projDistance.x
-        y = projDistance.y
+        x = projDistance.x - self.x
+        y = projDistance.y - self.y
         x1 = otherProj.x
         y1 = otherProj.y
+        #xOrigin = 0 xFinal = 10 otherLoc = 5
+        
