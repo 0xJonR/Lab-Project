@@ -15,13 +15,13 @@ class Weapon(Location):
         super().__init__(loc.x, loc.y)
 
 #    #weapons should not shoot infintely in a direction
-    def shoot(self):
+    def shoot(self): #TODO IMPLEMENT HITSCAN
         #subtract one from ammo
         self.ammo -= 1
         Projectile(self.x, self.y)
         pass
 
-    def reload(self):
+    def reload(self): #TODO IMPLEMENT DELAY AND RELOAD
         pass
 
 

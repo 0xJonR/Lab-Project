@@ -18,11 +18,11 @@ class Projectile(Location):
     def projectileDistance(self, dT):
         c = Projectile(self.x + dT, self.y + dT)
         return c
-
+    #TODO FINISH THIS FUNCTION
     def isCollide(self, projDistance, otherProj):
         x = projDistance.x - self.x
         y = projDistance.y - self.y
         x1 = otherProj.x
         y1 = otherProj.y
         #xOrigin = 0 xFinal = 10 otherLoc = 5
-        
+
