@@ -40,13 +40,11 @@ class Projectile(Location, Orientation):
         self.fireDistance = fd
         super().__init__(orientation)
 
-    def __eq__(self, other):
-        return self.x==other.x and self.y==other.y
 
     def distance(self):
         xbias = self.orient[0]
         ybias = self.orient[1]
-        c = Projectile((self.x + self.fireDistance) * xbias, (self.y + self.fireDistance) * ybias)
+        c = Location((self.x + self.fireDistance) * xbias, (self.y + self.fireDistance) * ybias)
         return c
 
     #TODO FINISH THIS FUNCTION
