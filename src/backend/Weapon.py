@@ -9,6 +9,8 @@ class Weapon(Location):
     ammo = 30 #30 rounds by
     dmg = 350
     fireRate = 0.5
+    fireDistance = 10
+    occupiesSpace = False
 
     def __init__(self, loc):
         #self.type = "Weapon"
@@ -29,6 +31,7 @@ class Pistol(Weapon):
     ammo = 10
     DMG = 25
     fireRate = 0.5
+    fireDistance = 10
 
     def __init__(self, loc):
         super().__init__(self, loc)
@@ -38,7 +41,7 @@ class Shotgun(Weapon):
     ammo = 5
     DMG = 420
     fireRate = 0.25
-
+    fireDistance = 7
     def __init__(self, loc):
         super().__init__(loc)
 
@@ -47,6 +50,7 @@ class Rifle(Weapon):
     ammo = 30
     DMG = 300
     fireRate = 1.0
+    fireDistance = 14
 
     def __init__(self, loc):
         super().__init__(loc)
@@ -56,6 +60,7 @@ class Smg(Weapon):
     ammo = 20
     DMG = 200
     fireRate = 1.60
+    fireDistance = 10
 
     def __init__(self, loc):
         super().__init__(loc)
