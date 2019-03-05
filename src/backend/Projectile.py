@@ -6,21 +6,21 @@ class Orientation(): #use orientation("up")
     def __init__(self, orient): #up down left right upleft upright downleft downright
         self.orientString = orient
         if (orient == "up"):
-            self.orient = (0, 1)
-        elif orient == "down":
             self.orient = (0, -1)
+        elif orient == "down":
+            self.orient = (0, 1)
         elif orient == "left":
             self.orient = (-1, 0)
         elif orient == "right":
             self.orient = (1, 0)
         elif orient == "upleft":
-            self.orient = (-1, 1)
-        elif orient == "upright":
-            self.orient = (1, 1)
-        elif orient == "downleft":
             self.orient = (-1, -1)
+        elif orient == "upright":
+            self.orient = (1, -1)
+        elif orient == "downleft":
+            self.orient = (-1, 1)
         elif orient == "downright":
-            self.orient == (1, -1)
+            self.orient = (1, 1)
 
 #TODO: WRITE TEST CASE AND ENSURE ORIENTATION WORKS AS INTENDED
 #INTENT FOR ORIENTATION CLASS: AUTOMATICALLY CONFIGURE PROJECTILES DIRECTION.
@@ -44,12 +44,15 @@ class Projectile(Orientation, Location):
     def distance(self):
         xbias = self.orient[0]
         ybias = self.orient[1]
-        c = Location((self.x + self.fireDistance) * xbias, (self.y + self.fireDistance) * ybias)
+        c = Location(self.x + (self.fireDistance * xbias), self.y + (self.fireDistance * ybias))
         return c
 
     #TODO FINISH THIS FUNCTION
-    def collision(self, projDistance, otherProj):
+    #TODO: USE SELF.DISTANCE TO GET EXPECTED RANGE OF PROJECTILE AND GO POINT BY POINT
+    #TO CHECK FOR COLLISION
+    def collision(self):
         #check point by point until collision (occupiesSpace) end of fireDistance
         #use orientation to know if up or left or etc
-        pass
+        dist = self.distance()
+
 
