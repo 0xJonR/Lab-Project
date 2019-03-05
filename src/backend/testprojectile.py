@@ -7,4 +7,4 @@ class TestProjectile(unittest.TestCase):
         testProj1 = Projectile(10, 10, 10, "up")
         testDistance = testProj1.Distance()
         expect = Location(0, 20)
-        assertEqual(expect, testDistance)
+        self.assertEqual(expect, testDistance)
