@@ -29,7 +29,7 @@ class Orientation(): #use orientation("up")
 # PROPER LINE SEGMENT IS REQUIRED FOR COLLISION DETECTION
 #END TODO
 
-class Projectile(Location, Orientation):
+class Projectile(Orientation, Location):
     #x y = location
     #param fD = weapon fireDistance
     #hitscan
@@ -39,7 +39,7 @@ class Projectile(Location, Orientation):
         self.y = y
         self.fireDistance = fd
         super().__init__(orientation)
-
+        #thinks its calling super to Location, we want Orientation
 
     def distance(self):
         xbias = self.orient[0]
