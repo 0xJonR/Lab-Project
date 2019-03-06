@@ -1,5 +1,5 @@
 from .Location import Location
-from .myMap import myMap
+
 
 class Orientation(): #use orientation("up")
     #access orientation of an object with object.orient
@@ -27,13 +27,12 @@ class Orientation(): #use orientation("up")
 # 8 DIFFERENT WAYS A PROJECTILE CAN MOVE, WITH EFFECT IT'S LINE SEGMENT
 #      ORIENTATION NOW ALSO SIMPLIFIES ORIENTATION LATER FOR CHARACTER: JUST EXTEND
 # PROPER LINE SEGMENT IS REQUIRED FOR COLLISION DETECTION
-#END TODO
+
 
 class Projectile(Orientation, Location):
     #x y = location
-    #param fD = weapon fireDistance
-    #hitscan
-    #
+    #param fD = weapon fireDistance#hitscan
+
     def __init__(self, x, y, fd, orientation):
         self.x = x
         self.y = y
@@ -51,6 +50,7 @@ class Projectile(Orientation, Location):
     #USE SELF.DISTANCE TO GET EXPECTED RANGE OF PROJECTILE AND GO POINT BY POINT
     #TO CHECK FOR COLLISION
     def collision(self, map):
+        from .myMap import myMap
         #check point by point until collision (occupiesSpace) end of fireDistance
         #use orientation to know if up or left or etc
         dist = self.distance() #Location (x, y) of projectile path

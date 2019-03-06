@@ -21,3 +21,7 @@ class Location:
 class Rock(Location):
 
     occupiesSpace = True
+
+    def __init__(self, loc):
+        self.x = loc.x
+        self.y = loc.y

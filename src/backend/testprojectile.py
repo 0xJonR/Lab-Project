@@ -1,9 +1,11 @@
 import unittest
 from .Projectile import Projectile
-from .Location import Location
+from .Location import Location, Rock
+from .myMap import myMap
+from .Weapon import Pistol
 
 
-class TestProjectile(unittest.TestCase):
+class testprojectile(unittest.TestCase):
 
     def testLocEquality(self):
         loc1 = Location(0, 20)
@@ -46,3 +48,9 @@ class TestProjectile(unittest.TestCase):
         expect = Location(0, 20)
         tdr = testdl.distance()
         self.assertEqual(tdr, expect)
+
+    def testCollision(self):
+        world = myMap(100, 3)
+        loc = Location(5, 5)
+        world.world[5][5] = Rock(loc)
+        self.assertEqual(world.world[5][5].occupiesSpace, True)

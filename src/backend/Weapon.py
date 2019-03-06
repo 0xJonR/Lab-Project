@@ -6,6 +6,7 @@ from .Location import Location
 
 
 class Weapon(Location):
+    name = "Weapon"
     ammo = 30 #30 rounds by
     dmg = 350
     fireRate = 0.5
@@ -16,6 +17,8 @@ class Weapon(Location):
         #self.type = "Weapon"
         super().__init__(loc.x, loc.y)
 
+    def spawn(self):
+        pass
 #    #weapons should not shoot infintely in a direction
     def shoot(self, direction): #TODO IMPLEMENT HITSCAN
         #subtract one from ammo
@@ -25,16 +28,18 @@ class Weapon(Location):
 
     def reload(self): #TODO IMPLEMENT DELAY AND RELOAD
         pass
-
+    def __str__(self):
+        return name
 
 class Pistol(Weapon):
+    name = "pistol"
     ammo = 10
     DMG = 25
     fireRate = 0.5
     fireDistance = 10
 
     def __init__(self, loc):
-        super().__init__(self, loc)
+        super().__init__(loc)
 
 
 class Shotgun(Weapon):
