@@ -16,3 +16,8 @@ class Location:
         return not self.__eq__(other)
 
 #    #instance methods
+
+
+class Rock(Location):
+
+    occupiesSpace = True

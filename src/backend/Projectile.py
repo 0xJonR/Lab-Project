@@ -47,8 +47,8 @@ class Projectile(Orientation, Location):
         c = Location(self.x + (self.fireDistance * xbias), self.y + (self.fireDistance * ybias))
         return c
 
-    #TODO FINISH THIS FUNCTION
-    #TODO: USE SELF.DISTANCE TO GET EXPECTED RANGE OF PROJECTILE AND GO POINT BY POINT
+
+    #USE SELF.DISTANCE TO GET EXPECTED RANGE OF PROJECTILE AND GO POINT BY POINT
     #TO CHECK FOR COLLISION
     def collision(self, map):
         #check point by point until collision (occupiesSpace) end of fireDistance

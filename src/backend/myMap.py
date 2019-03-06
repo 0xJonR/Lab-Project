@@ -1,6 +1,6 @@
 from .Projectile import Projectile
 from .Character import Character
-from .Location import Location
+from .Location import Location, Rock
 from .Weapon import Weapon, Pistol, Rifle, Shotgun, Smg
 import random
 #matrix[column][row]
@@ -19,6 +19,8 @@ class myMap():
                 #inits world full of locations
         for x in range(self.spawnmod):
             self.ran_gen()
+        for x in range(10):
+            self.spawn(Rock)
 
     def rEz(self):
         return (random.randint(0, 100), random.randint(0, 100))
@@ -28,7 +30,6 @@ class myMap():
 
     def addChar(self, dropzonex, dropzoney):
         self.world[dropzonex][dropzoney] = Character(dropzonex, dropzoney)
-        pass #implement new character
 
     def spawn(self, itemName):
         xR = self.random()
