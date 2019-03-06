@@ -10,6 +10,7 @@ class TestProjectile(unittest.TestCase):
         loc2 = Location(0, 20)
         loc3 = Location(10, 20)
         self.assertEqual(loc1, loc2)
+        print(self.assertEqual(loc1, loc2))
         self.assertNotEqual(loc3, loc2)
 
     def testProj(self):

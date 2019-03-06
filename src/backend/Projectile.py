@@ -1,5 +1,5 @@
 from .Location import Location
-
+from .myMap import myMap
 
 class Orientation(): #use orientation("up")
     #access orientation of an object with object.orient
@@ -50,9 +50,58 @@ class Projectile(Orientation, Location):
     #TODO FINISH THIS FUNCTION
     #TODO: USE SELF.DISTANCE TO GET EXPECTED RANGE OF PROJECTILE AND GO POINT BY POINT
     #TO CHECK FOR COLLISION
-    def collision(self):
+    def collision(self, map):
         #check point by point until collision (occupiesSpace) end of fireDistance
         #use orientation to know if up or left or etc
-        dist = self.distance()
+        dist = self.distance() #Location (x, y) of projectile path
+        i = self.x
+        j = self.y
+        while i<=dist.x and j<=dist.y:
+            if i == dist.x and dist.y > j:
+                if not map.world[i][j+1].occupiesSpace: #down
+                    j+=1
+                else:
+                    return True
+            elif j == dist.y and dist.x > i:
+                if not map.world[i+1][j].occupiesSpace: #right
+                    i+=1
+                else:
+                    return True
+            elif i == dist.x and dist.y < j:
+                if not map.world[i][j-1].occupiesSpace: #up
+                    j-=1
+                else:
+                    return True
+            elif j == dist.y and dist.x < i:
+                if not map.world[i-1][j].occupiesSpace: #left
+                    i-=1
+                else:
+                    return True
+            elif dist.x > i and dist.y > j: #downright
+                if not map.world[i+1][j+1].occupiesSpace:
+                    i+=1
+                    j+=1
+                else:
+                    return True
+            elif dist.x < i and dist.y > j: #downleft
+                if not map.world[i-1][j+1].occupiesSpace:
+                    i-=1
+                    j+=1
+                else:
+                    return True
+            elif dist.x > i and dist.y < j: #upright
+                if not map.world[i+1][j-1].occupiesSpace:
+                    i+=1
+                    j-=1
+                else:
+                    return True
+            elif dist.x < i and dist.y < j: #upleft
+                if not map.world[i-1][j-1].occupiesSpace:
+                    i-=1
+                    j-=1
+                else:
+                    return True
+        return False
+
 
 
