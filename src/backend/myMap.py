@@ -1,7 +1,7 @@
 from .Projectile import Projectile
 from .Character import Character
 from .Location import Location, Rock
-from .Weapon import Weapon, Pistol, Rifle, Shotgun, Smg
+from .Item import Weapon, Pistol, Rifle, Shotgun, Smg
 import random
 #matrix[column][row]
 #origin is [0][0] top left corner: right to left movement is map[+-x][row]

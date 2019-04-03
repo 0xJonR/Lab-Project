@@ -25,6 +25,12 @@ class Orientation(): # use orientation("up")
     def update(self, orient):
         super(orient)
 
+    def to_dict(self):
+        return {"orientation": self.orientString}
+
+    def to_json(self):
+        import json
+        return json.dumps(self.to_dict())
 # TODO: WRITE TEST CASE AND ENSURE ORIENTATION WORKS AS INTENDED
 # INTENT FOR ORIENTATION CLASS: AUTOMATICALLY CONFIGURE PROJECTILES DIRECTION.
 #  8 DIFFERENT WAYS A PROJECTILE CAN MOVE, WITH EFFECT IT'S LINE SEGMENT
@@ -106,7 +112,7 @@ class Projectile(Orientation, Location):
                     return True
         return False
 
-    def result(self, amap):  #returns new location after projectile
+    def result(self, amap):  # returns new location after projectile
         if self.collision(amap):
             pass
         else:

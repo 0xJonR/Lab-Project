@@ -16,6 +16,12 @@ class Location:
     def __ne__(self, other):
         return not self.__eq__(other)
 
+    def to_json(self):
+        import json
+        return json.dumps(self.to_dict())
+
+    def to_dict(self):
+        return {'x':self.x, 'y':self.y}
 #    #instance methods
 
 
@@ -26,6 +32,7 @@ class Rock(Location):
     def __init__(self, loc):
         self.x = loc.x
         self.y = loc.y
+
 
 class Crate(Location):
 

@@ -1,10 +1,10 @@
 from .Projectile import Projectile
 from .Location import Location
-#THIS CLASS PROVIDES BASE FUNCTIONALITY FOR GUNS SUCH AS SHOOTING METHODS AND SHIT
-#ALL GUNS WILL INHERIT THOSE METHODS AND JUST PROVIDE DECORATIVE SUGAR FOR HOW MUCH AMMO, DMG, ETC
-#TODO implement projectile functionality + HitScan
+# THIS CLASS PROVIDES BASE FUNCTIONALITY FOR GUNS SUCH AS SHOOTING METHODS AND SHIT
+# ALL GUNS WILL INHERIT THOSE METHODS AND JUST PROVIDE DECORATIVE SUGAR FOR HOW MUCH AMMO, DMG, ETC
 
 
+# TODO add Item superclass
 class Weapon(Location):
     name = "Weapon"
     ammo = 30 #30 rounds by
@@ -29,7 +29,7 @@ class Weapon(Location):
     def reload(self): #TODO IMPLEMENT DELAY AND RELOAD
         pass
     def __str__(self):
-        return name
+        return self.name
 
 class Pistol(Weapon):
     name = "pistol"

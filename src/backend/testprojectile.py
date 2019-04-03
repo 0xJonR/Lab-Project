@@ -2,7 +2,7 @@ import unittest
 from .Projectile import Projectile
 from .Location import Location, Rock
 from .myMap import myMap
-from .Weapon import Pistol
+from .Item import Pistol
 
 
 class testprojectile(unittest.TestCase):
