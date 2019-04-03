@@ -1,37 +1,57 @@
 from .Location import Location
 #TODO ADD ALL FUNCTIONALITY
-from .Projectile import Orientation
+from .Projectile import Orientation, Projectile
 import keyboard
 
+
 class Character(Location):
-    health = 1000
-    speed = 10
-    inventory = []
-    orient = Orientation("up") #default orient
-    def pickup(self, item):
-        pass
-    def getMovement(self): #listen for key press, return new location based on key
-        #W A S D movement
+
+    def __init__(self, loc):
+        self.location = loc  # determines location of character
+        self.health = 1000  # determines health of character
+        self.armor = 0  # determines armor of character
+        self.speed = 1  # determines speed of character
+        self.inventory = [] # determines inventory of character
+        self.guns = []  # determines guns of character
+        self.orient = Orientation("up")  # determines orient of character
+
+    def pickup(self, item): #API: add item to inventory
+        self.inventory.append(item)
+
+    def get_movement(self, amap):  # listen for key press, return new location based on key
+        # WASD movement
         if keyboard.is_pressed('w'):
-            self.movement_handler('up')
+            self.orient_handler('up')
+            self.location = self.movement_handler('up').result(amap)
         elif keyboard.is_pressed('s'):
-            self.movement_handler('down')
+            self.orient_handler('down')
+            self.location = self.movement_handler('down').result(amap)
         elif keyboard.is_pressed('a'):
-            self.movement_handler('left')
+            self.orient_handler('left')
+            self.location = self.movement_handler('left').result(amap)
         elif keyboard.is_pressed('d'):
-            self.movement_handler('right')
+            self.orient_handler('right')
+            self.location = self.movement_handler('right').result(amap)
  
-    def movement_handler(self, string):
+    def orient_handler(self, string): #orientation
         if string == 'w':
+            self.orient.update("up")
 
-            #doThis
         elif string =='s':
-            #dothis
+            self.orient.update('down')
+
         elif string =='a':
-            #dothis
+            self.orient.update("left")
+
         elif string =='d':
-            #dothis
+            self.orient.update("right")
 
+    def movement_handler(self, direction):
+        if direction == self.orient.orientString:
+            return Projectile(self.location.x, self.location.y, self.speed, self.orient)
+        else:
+            pass
 
-    def toJson(): #imports character info into Json
+    def to_json(self):  # imports character info into Json
         pass
+
