@@ -11,7 +11,8 @@ import random
 
 
 class myMap():
-
+    #size is any number n that makes the map nxn
+    #spawnmod determines number of items in gameworld
     def __init__(self, size, spawnMod):
         self.spawnmod = spawnMod
         self.size = size

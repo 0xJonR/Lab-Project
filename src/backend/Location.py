@@ -1,6 +1,7 @@
 class Location:
     #    attributes
     occupiesSpace = False #true by default
+    overWritable = True #to be used in spawn generation
     #    init
     def __init__(self, x, y):
         self.x = x
@@ -25,3 +26,12 @@ class Rock(Location):
     def __init__(self, loc):
         self.x = loc.x
         self.y = loc.y
+
+class Crate(Location):
+
+    occupiesSpace = True
+
+    def __init__(self, loc):
+        self.x = loc.x
+        self.y = loc.y
+
